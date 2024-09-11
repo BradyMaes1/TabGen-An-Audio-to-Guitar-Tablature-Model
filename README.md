@@ -6,6 +6,7 @@ Tablature is a simplified musical notation that aids a user in playing a particu
 
 
 <h3>Vocabulary</h3>
+
 Some vocabulary terms are important for understanding this project:​
 
 **Guitar tablature**- A form of musical notation that indicates the positions on the guitar's fretboard where the player should place their fingers to play a song. The horizontal represents time, the vertical represents guitar strings, and the numbers and symbols placed on the x-axis indicate the fret (or special case) to be played. The frets on a guitar are the vertical strips that the user applies pressure to, shortening the length of the string and giving it a higher frequency. ​
