@@ -2,6 +2,6 @@
 
 This project aims to train a model to take in short audio files of a guitar being played and transform them into tablature descriptions as text files. 
 
-# Abstract
 Tablature is a simplified musical notation that aids a user in playing a particular sound or song. Guitar tabs are ideal for amateur guitar enthusiasts who cannot read and understand traditional sheet music. This model was trained on the GuitarSet dataset (Xi et al.) containing 360 samples of guitar being played as well as annotations. The audio files are in the form of WAV files and the annotations are in the form of JAMS files. The WAV files are preprocessed into Mel-spectrograms to standardize the inputs into the model and account for human perception of sounds. The JAMS files are preprocessed into text files mimicking what tabs look like to provide our desired outputs. This project is a work in progress and different model architectures are being experimented with. A hybrid model with convolutional layers at the beginning and Long Short-Term Memory (LSTM) could combine the strengths of Convolutional Neural Networks (CNN) and LSTM neural networks. Most notably, CNNs are excellent for processing images such as mel-spectrograms while LSTMs are useful for their ability to understand long-term sequential relationships (importance of the order of events in both audio files and tab representations).​
 
+<h6>Vocabulary</h6>
