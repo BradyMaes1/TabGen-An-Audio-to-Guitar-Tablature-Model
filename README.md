@@ -28,4 +28,40 @@ Some vocabulary terms are important for understanding this project:​
 **Transformer Model**- A model that relies entirely on self-attention to handle dependencies between input and output elements, eliminating the need for recurrent or convolutional layers, which were commonly used in previous architectures (like LSTM and CNN)
 
 ​
+<h3>Preprocessing</h3>
+
+The audio, annotation file pairs must be preprocessed to be useful and meaningful to our model. Machine learning models expect input and output data in the form of integer (sometimes float) arrays. This step is crucial because how we preprocess our files will determine how much information is lost versus how much is kept & fed into our model. Additionally, the format and representation of our data created by our preprocessing will influence our model's learning as well as how resource-intensive the training will be. For the sake of simplicity, most of the examples given in this presentation will use the first file named "05_SS3-98-C_solo." ​
+
+The audio files from this dataset come in WAV format, which is ideal because of its lack of compression and therefore lack of data loss. However, the WAV files must be preprocessed into a more model-friendly format. Spectrograms are a popular visual representation of the spectrum of frequencies in a signal as it varies with time. They can be thought of as visual, graphical representations of sound where the x-axis represents time (from left to right) and the y-axis represents the frequency of a sound or sounds. Finally, there is a third parameter- the intensity or magnitude of each frequency in decibels. This intensity is represented by the color of the lines, similar to a heat map. Mel-spectrograms are an extension of spectrograms that have been filtered to more accurately represent human interpretation of sound. Spectrograms are highly compatible with models that excel at image processing & choosing Mel-spectrograms accounts for human perception. An example Mel-spectrogram from the preprocessing can be seen below in Figures 1 and 2. Note that the spectrogram contains empty yellow space on the right side because all spectrograms were padded to a length of 4000 (the largest audio file rounded up)  to standardize the input. The spectrograms are divided into 512 bins each. ​
+
+​<p align="center">
+  <img src="https://github.com/BradyMaes1/TabGen-An-Audio-to-Guitar-Tablature-Model/blob/main/audioFileExample.PNG" alt="Audio File Location" />
+</p>
+
+<h3 align="center">Converted To</h3>
+
+<p align="center">
+  <img src="https://github.com/BradyMaes1/TabGen-An-Audio-to-Guitar-Tablature-Model/blob/main/spectrogramExample.PNG" alt="Mel Spectrogram" />
+</p>
+
+
+The annotation files from this dataset come in JSON Annotated Music Specification (JAMS) format. These JAMS files contain information about their corresponding audio file and how it is played, such as Musical Instrument Digital Interface (MIDI) data which can be used to determine frequencies and notes at specific times.  From here, we can calculate what fret of what string was being played at what time based on MIDI note numbers.  A dictionary is then used to store guitar string letters (represented as numbers) as keys and their value contents as an array containing fret numbers. From here,  text files are made showing the fret numbers on their corresponding guitar strings with the strings indicated by their letter names (e, A, D,  G, B, E) followed by a "|" bar symbol for organizational reasons.  Next, dashes "-" are inserted into the array to show the passing of time (10 dashes/second) and inserted between touching fret numbers to act as a separator. It is also worth noting that a check is added to treat double-digit fret numbers as double digits by checking the length of the current line and if this character plus the next one forms a digit. If both criteria are true, then they're added together as one fret number and the next iteration of the loop is skipped.  Finally, padding of dashes is added to the end to make all files the same length (the length of the longest file). An example of some contents from an annotation file and its corresponding tab can be seen below (both partial). ​
+
+Note: The data on the left is not an exact translation of the data on the right as their different file formats do not place their relevant information near one another in a way that could fit in a graphic like this. ​
+
+​<p align="center">
+  <img src="https://github.com/BradyMaes1/TabGen-An-Audio-to-Guitar-Tablature-Model/blob/main/JAMSpitchExample.PNG" alt="JAMS Annotation File" />
+</p>
+
+<h3 align="center">Converted To</h3>
+
+<p align="center">
+  <img src="https://github.com/BradyMaes1/TabGen-An-Audio-to-Guitar-Tablature-Model/blob/main/tabFormattedExample.PNG" alt="Tab Representation" />
+</p>
+
+The representation shown in Figure 4 is the closest to actual guitar tabs and is our desired final product when making predictions. However, this format is not compatible with models and needs to be encoded so that it is readable for our model.  The text files containing our tabs are one-hot encoded based on a mapping of integers  0-28 (inclusive).  This means we have 29 classes or categories.  Our arrays of encoded tabs are then converted into binary 2D arrays so that they can finally be used for training.  An example of what the first few characters from Figure 4 look like encoded can be seen below in Figure 5. ​
+
+​
+
+​
 
