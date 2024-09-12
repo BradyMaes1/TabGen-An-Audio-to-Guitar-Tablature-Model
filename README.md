@@ -1,8 +1,8 @@
 # TabGen-An-Audio-to-Guitar-Tablature-Model
 
 Researcher: Maes, Brady
-
-Mentor: Uddin, Md Yusuf Sarwar,
+Mentor: Uddin, Md Yusuf Sarwar
+Mentor: Uddin, Md Yusuf Sarwar
 Department: School of Science and Engineering, Computer Science
 Funding: The Department of the Navy, Office of Naval Research under ONR award number N00014-21-1-2710.
 
