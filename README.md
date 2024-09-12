@@ -1,9 +1,8 @@
 # TabGen-An-Audio-to-Guitar-Tablature-Model
 
-Researcher: Maes, Brady
-Mentor: Uddin, Md Yusuf Sarwar
-Mentor: Uddin, Md Yusuf Sarwar
-Department: School of Science and Engineering, Computer Science
+Researcher: Maes, Brady                                                                                                                                      
+Mentor: Uddin, Md Yusuf Sarwar                                                                                                                                                  
+Department: School of Science and Engineering, Computer Science                                                                                        
 Funding: The Department of the Navy, Office of Naval Research under ONR award number N00014-21-1-2710.
 
 This project aims to train a model to take in short audio files of a guitar being played and transform them into tablature descriptions as text files. 
