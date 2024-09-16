@@ -21,14 +21,6 @@ Some vocabulary terms are important for understanding this project:​
 
 **Mel-Spectrograms** Spectrograms using the Mel scale to imitate how humans perceive sound frequencies
 
-**Encoding**- Converting data from one form or format into another. In this case, encoding serves the purpose of making text into a format that machine learning models can understand (integers that are then converted into binary).​
-
-**Convolutional Neural Network (CNN**)- A  type of deep learning model specifically designed for processing structured grid data, such as images (very simplified).  ​
-
-**Long Short-Term Memory (LSTM)**-A type of recurrent neural network (RNN)  designed to effectively learn and remember over long sequences of data. They're especially good for problems that involve sequential data with long-term dependencies. ​
-
-**Transformer Model**- A model that relies entirely on self-attention to handle dependencies between input and output elements, eliminating the need for recurrent or convolutional layers, which were commonly used in previous architectures (like LSTM and CNN)
-
 ​
 <h3>Preprocessing</h3>
 
